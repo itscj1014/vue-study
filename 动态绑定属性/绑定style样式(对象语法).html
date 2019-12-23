@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  
+  </style>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2 :style="styles">{{message}}</h2>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue',
+        finalSize: 50,
+        finalFont: 'red'
+
+      },
+      methods: {},
+      computed:{
+        styles(){
+          return {fontSize:this.finalSize + 'px',backgroundColor:this.finalFont}
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

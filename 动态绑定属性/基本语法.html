@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+       <!-- 图片的连接和网站的连接 -->
+   <a v-bind:href="vueLink">百度一下</a>
+   <img :src="imgUrl" alt="">
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        vueLink:'http://www.baidu.com',
+        imgUrl:'https://img-blog.csdnimg.cn/2019092715111047.png'
+
+      },
+      methods: {}
+    });
+  </script>
+</body>
+
+</html>
