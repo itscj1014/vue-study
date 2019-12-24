@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <cpn :cnums1="num1" 
+    :cnums2="num2"
+    @num1change="num1change"
+    @num2change="num2change"></cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <input type="text" :value="dnums1" @input="cinputhandle1">
+      <h2>props:{{cnums1}}</h2>
+      <h2>data:{{dnums1}}</h2>
+      <br>
+
+      <input type="text" :value="dnums2"  @input="cinputhandle2">
+      <h2>props:{{cnums2}}</h2>
+      <h2>data:{{dnums2}}</h2>
+    </div>
+  </template>
+
+  <script>
+    const cpn = {
+      template:'#cpn',
+      data(){
+        return{
+          dnums1:this.cnums1,
+          dnums2:this.cnums2
+        }
+      },
+      props:{
+        cnums1:{
+          type:Number
+        },
+        cnums2:{
+          type:Number
+        }
+      },
+      methods:{
+        cinputhandle1(event){
+          //将input中的值赋值到dnums1中
+          this.dnums1 = event.target.value
+
+          this.$emit("num1change",this.dnums1)
+
+          //同时修改dnums2的值
+          this.dnums2 = this.dnums1 * 100
+          this.$emit("num2change",this.dnums2)
+
+          
+        },
+        cinputhandle2(event){
+          this.dnums2 = event.target.value
+
+          this.$emit("num2change",this.dnums2)
+
+          this.dnums1 = this.dnums2 / 100
+          this.$emit("num1change",this.dnums1)
+        }
+      }
+
+    }
+
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        num1:1,
+        num2:2
+      },
+      methods: {
+        num1change(value){
+          this.num1 = value * 1
+
+        },
+        num2change(value){
+          this.num2 = value * 1
+        }
+      },
+      components:{
+        cpn
+      }
+    });
+  </script>
+</body>
+
+</html>
