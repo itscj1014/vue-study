@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <br>
+    <cpn>
+      <h2>我是插槽替换的内容</h2>
+      <p>我也是插槽替换的内容</p>
+    </cpn>
+  </div>
+
+
+  <template id="cpn">
+    <div>
+      <slot>我是插槽中的默认内容</slot>
+    </div>
+  </template>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {},
+      methods: {},
+      components:{
+        cpn:{
+          template:"#cpn",
+
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

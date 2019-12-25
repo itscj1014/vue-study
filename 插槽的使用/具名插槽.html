@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <cpn>
+     <h2 slot="left">我是AA</h2>
+     <span slot="left">我是BB</span>
+     <span slot="left1">我是CC</span>
+    </cpn>
+  </div>
+
+
+  <template id="cpn">
+    <!-- shift + alt + ↓ 快速复制一行到下一行  -->
+   <div>
+    <slot name="left">我是左侧</slot>
+    <slot name="center">我是中间</slot>
+    <slot name="right">我是右侧</slot>
+   </div>
+  </template>
+
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {},
+      methods: {},
+      components:{
+        cpn:{
+          template:"#cpn",
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
