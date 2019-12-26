@@ -1,0 +1,17 @@
+{
+  "name": "meetless",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^3.4.0",
+    "less-loader": "^5.0.0",
+    "style-loader": "^1.1.2",
+    "webpack": "^3.6.0"
+  }
+}
