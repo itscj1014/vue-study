@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script>
+    // setTimeout(()=>{
+    //   let data = 'Hello World'
+    //   console.log(data)
+
+    // },2000)
+
+// 1、链式调用
+    // new Promise((resolve,reject)=>{
+    //   setTimeout(()=>{
+    //     resolve('Hello 111')
+    //     reject('Error 222')
+    //   },2000)
+    // }) .then(data=>{
+    //   console.log(data)
+    //   return Promise.resolve(data+'111')
+    // }).catch(err=>{
+    //   console.log(err)
+    // }).then(data=>{
+    //   console.log(data)
+    // })
+
+
+///2、链式调用的简写
+    new Promise((resolve,reject)=>{
+      let data = 'data'
+      console.log(data)
+      resolve(data)
+    }).then(data=>{
+      console.log(data)
+      return data+'1'
+    }).catch(err=>{
+      console.log(err)
+      return err+'0'
+    }).then(data=>{
+      console.log(data)
+      return data+'2'
+    }).then(data=>{
+      console.log(data)
+      throw data+'throw'
+    }).then(data=>{
+      console.log(data)
+      return data+'3'
+    }).catch(err=>{
+      console.log(err)
+    })
+
+  </script>
+  
+</body>
+</html>
